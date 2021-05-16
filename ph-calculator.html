@@ -7,19 +7,19 @@
         var p2 = document.querySelector('input[name="p2"]').value;
         var p3 = document.querySelector('input[name="p3"]').value;
         var v1 = document.querySelector('input[name="v1"]').value;
-        var v2 = ((Math.pow(10,p1)-Math.pow(10,p3))*v1)/(Math.pow(10,p3)-Math.pow(10,p2))
-        document.querySelector('#v3').innerText = v2;
-        document.querySelector('#result).style.display="block";
+        var v2 = ((Math.pow(10,-p1)-Math.pow(10,-p3))*v1)/(Math.pow(10,-p3)-Math.pow(10,-p2))
+        document.querySelector('#v3').innerText = parseFloat(v2).toFixed(2);
+        document.querySelector('#result').style.display="block";
       }
     </script>
   </head>
   <body>
     <h1>pH Calculator</h1>
     pH of Tank : <input type="number" name="p1" />
-    Volume of Tank : <input type="number" name="v1" />    
+    Volume of Tank (in ML) : <input type="number" name="v1" />    
     Desired pH of Tank : <input type="number" name="p3" />
     pH of Acid: <input type="number" name="p2" value="0.5" />
-    <button onClick="phcalculate()" value="Calculate" />
-    <div id="result" style="display:none;">Mix <h2 id="v3"></h2> ML of acid</div>
+    <button onclick="phcalculate()" name="Calculate" value="Calculate">Calculate</button>
+    <div id="result" style="display:none;margin-top:2em;">Mix <span id="v3"></span> ML of acid</div>
   </body>
 </html>
